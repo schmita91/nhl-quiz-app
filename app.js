@@ -175,7 +175,7 @@ const store = {
 
         return `
             <li>
-                <div class="selectAnswer">
+                <div class="submitAnswer">
                 <input type="radio" name="answer" id="answerNumber-${name}" data-answer="${answer}">
                 <label for="answer-${name}"> ${answer}</label>
 
@@ -275,7 +275,7 @@ const store = {
   
     if (radios.filter(':checked').length === 0) {
       //filters out checked values and if there is none, there needs to be one selected
-      alert('Please select an answer.');
+      alert('Please choose an answer.');
       return;
     } else {
       store.submitAns = true;
