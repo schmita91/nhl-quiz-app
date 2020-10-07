@@ -27,12 +27,12 @@ const store = {
       {
         question: 'As of the 2020-2021 season, how many U.S. states are home to a National Hockey League team?',
         answers: [
-          '15',
-          '17',
-          '16',
-          '18'
+          '15 States',
+          '17 States',
+          '16 States',
+          '18 States'
         ],
-        correctAnswer: '18'
+        correctAnswer: '18 States'
       },
       {
         question: 'Which of these European countries has produced the most active NHL players?',
@@ -126,7 +126,7 @@ const store = {
   //If on last question -- button changes from 'Next' to 'View Results'
   //answerIsCorrect + answerIsIncorrect 
     function renderAnswerResults() {
-        let answerArray = store.currentState.answerArr;
+        let answerArr = store.currentState.answerArr;
 
         const buttons = {
             next: '<button type="submit" class="goToNextQuestion" autofocus="on">Next Question</button>',
@@ -140,8 +140,7 @@ const store = {
         // if the index number + 1 is equal to the length of questions array (number of questions) then it is the last question
         let lastQ = (store.questionNumber + 1) === (store.questions.length);
 
-        return 
-        `
+        return `
             <div class="answerView">
             <form> 
             <p>${answerArr[0] === true ? answerIsCorrect : answerisIncorrect}</p>
@@ -158,13 +157,13 @@ const store = {
 // The index number of the anser is pushed to the indexArray
 // answerArray.map(answer => stringAnswers(answer)).join('') maps over the answerArray, formats each answer choice as a radio item, and joins them all together
     function renderQuizAnswers(answers) {
-        let answerArray = [];
+        let answerArr = [];
         let indexArray = [];
         answers.forEach(answer => {
-            answerArray.push(answer);
+            answerArr.push(answer);
             indexArray.push(answers.indexOf(answer));
         });
-        return answerArray.map(answer => stringAnswers(answer)).join('');
+        return answerArr.map(answer => stringAnswers(answer)).join('');
     } 
 
 // the stringAnswers function is used to format each answer as a radio item that can be called in our renderQuizAnswers function 
@@ -175,7 +174,7 @@ const store = {
 
         return `
             <li>
-                <div class="submitAnswer">
+                <div class="answer-container">
                 <input type="radio" name="answer" id="answerNumber-${name}" data-answer="${answer}">
                 <label for="answer-${name}"> ${answer}</label>
 
@@ -189,7 +188,7 @@ const store = {
         return `
         <div class='quizResults'>
             <p>You have completed the quiz.</p>
-            <p>You got ${store.score} questions correct and ${store.questions.length - store.score} questions incorrect</p>
+            <p>You scored ${store.score} out of ${store.questions.length * 10}</p>
                 <button class="startOver">Start Over</button>
         </div>
         `;
@@ -220,11 +219,15 @@ const store = {
      
 
     } else if (store.quizStarted === true) {
+      console.log("inside renderQuiz")
       if(store.submitAns === false) {
+        console.log("inside renderQuiz")
         const questionViewString = createQuestionView(returnCurrentQuestion());
         $('main').html(questionViewString);
       } else if (store.submitAns === true) {
+        console.log("inside renderQuiz else if")
         const answerResultsString = renderAnswerResults();
+        console.log(answerResultsString)
         $('main').html(answerResultsString);
       }
     } 
@@ -297,7 +300,7 @@ const store = {
     store.quizStarted = false;
     store.questionNumber = 0;
     store.submittingAnswer = false;
-    store.currentQuestionState.answerArr = [];
+    store.currentState.answerArr = [];
   }
   
   /********** EVENT HANDLER FUNCTIONS **********/
@@ -316,6 +319,7 @@ const store = {
   function handleSubmitAnswer() {
     $('main').on('click' , '.submitAnswer', (event)=>{
       event.preventDefault();
+      console.log('submitting answer...')
       gradeAnswer();
       renderQuiz();
     });

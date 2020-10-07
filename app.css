@@ -8,20 +8,26 @@
 */
 
 h1 {
-	text-align: center;
-	font-family: serif;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+	font-family: 'Impact','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
-  background-color: white;
+  background-image: url("https://www.wallpapertip.com/wmimgs/50-504186_high-resolution-hockey-rink-background.jpg") ;
   color: black;
+  font-family: 'Impact','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 h1 {
+    
+    font-family: 'Impact','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-left: 20px;
 }
 
 p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 28px;
 }
 
@@ -31,11 +37,14 @@ p {
   border: 4px solid blue;
   display: flex;
   flex-direction: column;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: rgba(159, 166, 179, 0.7)
 }
 
 ol li {
   margin: 8px;
   font-size: 24px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 input[type='radio'] {transform: scale(1.4)}
@@ -46,7 +55,25 @@ input[type='radio'] {transform: scale(1.4)}
 }
 
 .submitAnswer, #quizStart, .startOver {
-	display: block;
-	text-align: center;
-	margin: 0 auto;
+    background-color: lightblue;
+    border: none;
+    color: black;
+    border-radius: 12px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.goToNextQuestion, .viewResults {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
