@@ -238,6 +238,10 @@ const store = {
   // called by handleQuizStartSubmit event handler function
   function quizStart() {
     store.quizStarted = true;
+    store.questionNumber = 0;
+    store.submittingAnswer = false;
+    store.score = 0;
+    store.currentState.answerArr = [];
   }
   
   
@@ -300,6 +304,7 @@ const store = {
     store.quizStarted = false;
     store.questionNumber = 0;
     store.submittingAnswer = false;
+    store.score = 0;
     store.currentState.answerArr = [];
   }
   
