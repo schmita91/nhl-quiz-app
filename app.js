@@ -239,7 +239,7 @@ const store = {
   function quizStart() {
     store.quizStarted = true;
     store.questionNumber = 0;
-    store.submittingAnswer = false;
+    store.submitAns = false;
     store.score = 0;
     store.currentState.answerArr = [];
   }
